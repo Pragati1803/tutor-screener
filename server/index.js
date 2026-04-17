@@ -63,7 +63,7 @@ app.post('/api/chat', async (req, res) => {
   }
   try {
     const response = await client.messages.create({
-      model: 'claude-haiku-4-5-20251001',
+      model: 'claude-3-5-haiku-20241022',
       max_tokens: 300,
       system: SYSTEM_PROMPT,
       messages,
@@ -81,7 +81,7 @@ app.post('/api/assess', async (req, res) => {
   if (!transcript) return res.status(400).json({ error: 'transcript required' });
   try {
     const response = await client.messages.create({
-      model: 'claude-haiku-4-5-20251001',
+      model: 'claude-3-5-haiku-20241022',
       max_tokens: 1000,
       system: ASSESSMENT_PROMPT,
       messages: [{ role: 'user', content: `Interview transcript:\n\n${transcript}\n\nAssess this candidate.` }],
